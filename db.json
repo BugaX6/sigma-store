@@ -1,0 +1,146 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "Admin",
+      "email": "admin@sigma.com",
+      "senha": "123456"
+    },
+    {
+      "nome": "eduardo",
+      "email": "buga@gmail.com",
+      "senha": "123456",
+      "id": "1yc8KfwjXxI"
+    },
+    {
+      "nome": "dimitri",
+      "email": "dimitri@gmail.com",
+      "senha": "dimitriviado",
+      "id": "smzYBHHFEi4"
+    },
+    {
+      "nome": "adriana",
+      "email": "adriana@gmail.com",
+      "senha": "123456",
+      "id": "qArZ7wa8Hpo"
+    }
+  ],
+  "perfumes_femininos": [
+    {
+      "id": "1",
+      "nome": "La Vie Est Belle",
+      "marca": "Lancôme",
+      "preco": 359.11,
+      "categoria": "feminino",
+      "tipo": "perfume",
+      "img": "/lancome.jpg"
+    },
+    {
+      "id": "2",
+      "nome": "Good Girl",
+      "marca": "Carolina Herrera",
+      "preco": 350,
+      "categoria": "feminino",
+      "tipo": "perfume",
+      "img": "/goodgirl.jpg"
+    },
+    {
+      "id": "3",
+      "nome": "La Bomba",
+      "marca": "Carolina Herrera",
+      "preco": 615,
+      "categoria": "feminino",
+      "tipo": "perfume",
+      "img": "/labomba.jpg"
+    }
+  ],
+  "perfumes_masculinos": [
+    {
+      "id": "1",
+      "nome": "Bad Boy",
+      "marca": "Carolina Herrera",
+      "preco": 680,
+      "categoria": "masculino",
+      "tipo": "perfume",
+      "img": "/badboy.jpg"
+    },
+    {
+      "id": "2",
+      "nome": "212 VIP Black",
+      "marca": "Carolina Herrera",
+      "preco": 680,
+      "categoria": "masculino",
+      "tipo": "perfume",
+      "img": "/212black.avif"
+    },
+    {
+      "id": "3",
+      "nome": "212 VIP Black Elixir",
+      "marca": "Carolina Herrera",
+      "preco": 745,
+      "categoria": "masculino",
+      "tipo": "perfume",
+      "img": "/212elixir.avif"
+    }
+  ],
+  "cremes_femininos": [
+    {
+      "id": "1",
+      "nome": "Bare Vanilla Shimmer",
+      "marca": "Victoria's Secret",
+      "preco": 180,
+      "categoria": "feminino",
+      "tipo": "creme",
+      "img": "/barevanilla.jpg"
+    },
+    {
+      "id": "2",
+      "nome": "Pure Seduction",
+      "marca": "Victoria's Secret",
+      "preco": 180,
+      "categoria": "feminino",
+      "tipo": "creme",
+      "img": "/pureseduction.jpg"
+    },
+    {
+      "id": "3",
+      "nome": "Isabelle La Belle",
+      "marca": "Isabelle La Belle",
+      "preco": 60,
+      "categoria": "feminino",
+      "tipo": "creme",
+      "img": "/angel.jpg"
+    }
+  ],
+  "cremes_masculinos": [
+    {
+      "id": "1",
+      "nome": "Malbec Club",
+      "marca": "O Boticário",
+      "preco": 74.98,
+      "categoria": "masculino",
+      "tipo": "creme",
+      "img": "/malbec.jpg"
+    },
+    {
+      "id": "2",
+      "nome": "Malbec Black Legend ",
+      "marca": "O Boticário",
+      "preco": 78.9,
+      "categoria": "masculino",
+      "tipo": "creme",
+      "img": "/malbecBlack.jpg"
+    },
+    {
+      "id": "3",
+      "nome": "Zaad Intense",
+      "marca": "O Boticário",
+      "preco": 100,
+      "categoria": "masculino",
+      "tipo": "creme",
+      "img": "/zaad.jpg"
+    }
+  ],
+  "carrinho": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}

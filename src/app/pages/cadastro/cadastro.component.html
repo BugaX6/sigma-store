@@ -1,0 +1,67 @@
+<!-- src/app/pages/cadastro/cadastro.component.html -->
+<div class="auth-page">
+  <div class="auth-lado">
+    <a routerLink="/" class="auth-logo">SIGMA STORE</a>
+    <h2>CRIE SUA<br />CONTA</h2>
+    <p>Entre para comprar seus produtos favoritos.</p>
+    <a routerLink="/login" class="auth-lado__btn">ENTRAR</a>
+  </div>
+
+  <div class="auth-form-wrap">
+    <h3>CADASTRO</h3>
+    <p class="auth-sub">Preencha seus dados</p>
+
+    <form [formGroup]="form" (ngSubmit)="cadastrar()">
+      <div class="auth-field">
+        <span class="auth-field__icon">Nome</span>
+        <input type="text" formControlName="nome" placeholder="NOME" />
+      </div>
+      @if (campo('nome').touched && campo('nome').hasError('required')) {
+        <span class="auth-erro">Nome obrigatorio.</span>
+      }
+      @if (campo('nome').touched && campo('nome').hasError('minlength')) {
+        <span class="auth-erro">Minimo 3 caracteres.</span>
+      }
+
+      <div class="auth-field">
+        <span class="auth-field__icon">Email</span>
+        <input type="email" formControlName="email" placeholder="E-MAIL" />
+      </div>
+      @if (campo('email').touched && campo('email').hasError('required')) {
+        <span class="auth-erro">E-mail obrigatorio.</span>
+      }
+      @if (campo('email').touched && campo('email').hasError('email')) {
+        <span class="auth-erro">E-mail invalido.</span>
+      }
+
+      <div class="auth-field">
+        <span class="auth-field__icon">Senha</span>
+        <input type="password" formControlName="senha" placeholder="SENHA" />
+      </div>
+      @if (campo('senha').touched && campo('senha').hasError('required')) {
+        <span class="auth-erro">Senha obrigatoria.</span>
+      }
+      @if (campo('senha').touched && campo('senha').hasError('minlength')) {
+        <span class="auth-erro">Minimo 6 caracteres.</span>
+      }
+
+      <div class="auth-field">
+        <span class="auth-field__icon">Senha</span>
+        <input type="password" formControlName="confirmar" placeholder="CONFIRMAR SENHA" />
+      </div>
+      @if (form.touched && form.hasError('senhasDiferentes')) {
+        <span class="auth-erro">As senhas nao conferem.</span>
+      }
+
+      @if (erro) {
+        <div class="auth-erro-box">{{ erro }}</div>
+      }
+
+      <button type="submit" class="auth-btn" [disabled]="carregando">
+        {{ carregando ? 'CADASTRANDO...' : 'CADASTRAR' }}
+      </button>
+    </form>
+
+    <p class="auth-link">Ja tem conta? <a routerLink="/login">Faca login</a></p>
+  </div>
+</div>

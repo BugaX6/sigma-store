@@ -1,0 +1,160 @@
+<!-- src/app/pages/landing/landing.component.html -->
+<app-navbar />
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__content">
+    <h1>O aroma que<br />combina com a<br />sua <span class="hero__destaque">essência!</span></h1>
+    <p>
+      Desperte o seu potencial com os nossos produtos.<br />Dê uma olhada e maravilhe-se com o que
+      temos preparado para si!
+    </p>
+    <a href="#perfumes" class="btn-gold">Explorar →</a>
+  </div>
+  <div class="hero__imagem">
+    <img
+      src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?w=600&h=500&fit=crop"
+      alt="Perfumes Sigma"
+    />
+  </div>
+</section>
+
+<!-- BANNER PERFUMES -->
+<section id="perfumes" class="banner" id="perfumes">
+  <div class="banner__card">
+    <div class="banner__texto">
+      <h2>PERFUMES</h2>
+      <p>Dê uma olhada e maravilhe-se com o que temos preparado para si!</p>
+      <a href="#perfumes-femininos" class="banner__btn">⬡ EXPLORE MAIS</a>
+    </div>
+    <img
+      src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400&h=300&fit=crop"
+      alt="Perfumes"
+    />
+  </div>
+</section>
+
+@if (carregandoProdutos) {
+  <section class="produtos-status">
+    <p>Carregando produtos...</p>
+  </section>
+}
+
+@if (erroProdutos) {
+  <section class="produtos-status produtos-status--erro">
+    <p>{{ erroProdutos }}</p>
+  </section>
+}
+
+<!-- PERFUMES FEMININOS -->
+<section class="produtos-secao" id="perfumes-femininos">
+  <h2 class="secao-titulo">FEMININOS</h2>
+  <div class="produtos-grid">
+    @for (p of perfumesFem; track p.id) {
+      <div class="produto-card" (click)="adicionarCarrinho(p)">
+        <img [src]="p.img" [alt]="p.nome" />
+        <div class="produto-card__info">
+          <span class="produto-card__nome">{{ p.nome }}</span>
+          <span class="produto-card__preco">{{ formatarPreco(p.preco) }}</span>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- PERFUMES MASCULINOS -->
+<section class="produtos-secao">
+  <h2 class="secao-titulo">MASCULINOS</h2>
+  <div class="produtos-grid">
+    @for (p of perfumesMasc; track p.id) {
+      <div class="produto-card" (click)="adicionarCarrinho(p)">
+        <img [src]="p.img" [alt]="p.nome" />
+        <div class="produto-card__info">
+          <span class="produto-card__nome">{{ p.nome }}</span>
+          <span class="produto-card__preco">{{ formatarPreco(p.preco) }}</span>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- BANNER CREMES -->
+<section class="banner" id="cremes">
+  <div class="banner__card">
+    <div class="banner__texto">
+      <h2>CREMES</h2>
+      <p>Dê uma olhada e maravilhe-se com o que temos preparado para si!</p>
+      <a href="#cremes-femininos" class="banner__btn">⬡ EXPLORE MAIS</a>
+    </div>
+    <img
+      src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=300&fit=crop"
+      alt="Cremes"
+    />
+  </div>
+</section>
+
+<!-- CREMES FEMININOS -->
+<section class="produtos-secao" id="cremes-femininos">
+  <h2 class="secao-titulo">FEMININOS</h2>
+  <div class="produtos-grid">
+    @for (p of cremesFem; track p.id) {
+      <div class="produto-card" (click)="adicionarCarrinho(p)">
+        <img [src]="p.img" [alt]="p.nome" />
+        <div class="produto-card__info">
+          <span class="produto-card__nome">{{ p.nome }}</span>
+          <span class="produto-card__preco">{{ formatarPreco(p.preco) }}</span>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- CREMES MASCULINOS -->
+<section class="produtos-secao">
+  <h2 class="secao-titulo">MASCULINOS</h2>
+  <div class="produtos-grid">
+    @for (p of cremesMasc; track p.id) {
+      <div class="produto-card" (click)="adicionarCarrinho(p)">
+        <img [src]="p.img" [alt]="p.nome" />
+        <div class="produto-card__info">
+          <span class="produto-card__nome">{{ p.nome }}</span>
+          <span class="produto-card__preco">{{ formatarPreco(p.preco) }}</span>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+@if (!carregandoProdutos && termoBusca && !temResultadoBusca()) {
+  <section class="busca-vazia">
+    <h2>Nenhum produto encontrado</h2>
+    <p>Tente buscar por nome, marca, perfume, creme, feminino ou masculino.</p>
+  </section>
+}
+
+<!-- FAQ -->
+<section class="faq">
+  <h2 class="secao-titulo">FAQ</h2>
+  <div class="faq__grid">
+    @for (item of faqs; track $index) {
+      <div class="faq__item" (click)="toggleFaq($index)">
+        <div class="faq__pergunta">
+          {{ item.pergunta }}
+          <span class="faq__icone">{{ faqAberto === $index ? '▲' : '▼' }}</span>
+        </div>
+        @if (faqAberto === $index) {
+          <div class="faq__resposta">{{ item.resposta }}</div>
+        }
+      </div>
+    }
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__brand">
+    <span>⬡ SIGMA STORE</span>
+    <p>O aroma que combina com a sua essência.</p>
+  </div>
+  <p class="footer__copy">© 2025 Sigma Store. Todos os direitos reservados.</p>
+</footer>

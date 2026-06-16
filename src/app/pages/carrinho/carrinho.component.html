@@ -1,0 +1,61 @@
+<!-- src/app/pages/carrinho/carrinho.component.html -->
+<app-navbar />
+
+<div class="carrinho-page">
+  <h1 class="carrinho-titulo">MEU CARRINHO</h1>
+
+  @if (itens.length === 0) {
+    <div class="carrinho-vazio">
+      <p>Seu carrinho esta vazio.</p>
+      <a routerLink="/" class="btn-gold">Continuar comprando</a>
+    </div>
+  }
+
+  @if (itens.length > 0) {
+    <div class="carrinho-layout">
+      <div class="carrinho-itens">
+        @for (item of itens; track item.produto.id) {
+          <div class="carrinho-item">
+            <img [src]="item.produto.img" [alt]="item.produto.nome" />
+            <div class="carrinho-item__info">
+              <h3>{{ item.produto.nome }}</h3>
+              <span class="carrinho-item__tipo">
+                {{ item.produto.tipo | titlecase }} / {{ item.produto.categoria | titlecase }}
+              </span>
+              <span class="carrinho-item__preco">{{ formatarPreco(item.produto.preco) }}</span>
+            </div>
+            <div class="carrinho-item__qtd">
+              <button (click)="diminuir(item)">-</button>
+              <span>{{ item.quantidade }}</span>
+              <button (click)="aumentar(item)">+</button>
+            </div>
+            <div class="carrinho-item__subtotal">
+              {{ formatarPreco(item.produto.preco * item.quantidade) }}
+            </div>
+            <button class="carrinho-item__remover" (click)="remover(item)" title="Remover">
+              Remover
+            </button>
+          </div>
+        }
+      </div>
+
+      <div class="carrinho-resumo">
+        <h2>RESUMO DO PEDIDO</h2>
+        <div class="resumo-linha">
+          <span>Subtotal ({{ itens.length }} item(ns))</span>
+          <span>{{ formatarPreco(total) }}</span>
+        </div>
+        <div class="resumo-linha">
+          <span>Frete</span>
+          <span class="resumo-frete">{{ total >= 299 ? 'Gratis' : 'R$ 19,90' }}</span>
+        </div>
+        <div class="resumo-total">
+          <span>TOTAL</span>
+          <span>{{ formatarPreco(total >= 299 ? total : total + 19.9) }}</span>
+        </div>
+        <button class="btn-finalizar" (click)="finalizar()">FINALIZAR PEDIDO</button>
+        <a routerLink="/" class="btn-continuar">Continuar comprando</a>
+      </div>
+    </div>
+  }
+</div>

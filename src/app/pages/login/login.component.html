@@ -1,0 +1,48 @@
+<!-- src/app/pages/login/login.component.html -->
+<div class="auth-page">
+  <div class="auth-lado">
+    <a routerLink="/" class="auth-logo">SIGMA STORE</a>
+    <h2>BEM-VINDO<br />DE VOLTA!</h2>
+    <p>Acesse sua conta agora.</p>
+    <a routerLink="/cadastro" class="auth-lado__btn">CRIAR CONTA</a>
+  </div>
+
+  <div class="auth-form-wrap">
+    <h3>FACA SEU LOGIN</h3>
+    <p class="auth-sub">Preencha seus dados</p>
+
+    <form [formGroup]="form" (ngSubmit)="entrar()">
+      <div class="auth-field">
+        <span class="auth-field__icon">Email</span>
+        <input type="email" formControlName="email" placeholder="E-MAIL" />
+      </div>
+      @if (email.touched && email.hasError('required')) {
+        <span class="auth-erro">E-mail obrigatorio.</span>
+      }
+      @if (email.touched && email.hasError('email')) {
+        <span class="auth-erro">E-mail invalido.</span>
+      }
+
+      <div class="auth-field">
+        <span class="auth-field__icon">Senha</span>
+        <input type="password" formControlName="senha" placeholder="SENHA" />
+      </div>
+      @if (senha.touched && senha.hasError('required')) {
+        <span class="auth-erro">Senha obrigatoria.</span>
+      }
+      @if (senha.touched && senha.hasError('minlength')) {
+        <span class="auth-erro">Minimo 6 caracteres.</span>
+      }
+
+      @if (erro) {
+        <div class="auth-erro-box">{{ erro }}</div>
+      }
+
+      <button type="submit" class="auth-btn" [disabled]="carregando">
+        {{ carregando ? 'ENTRANDO...' : 'ENTRAR' }}
+      </button>
+    </form>
+
+    <p class="auth-link">Nao tem conta? <a routerLink="/cadastro">Cadastre-se</a></p>
+  </div>
+</div>

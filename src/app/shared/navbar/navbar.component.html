@@ -1,0 +1,52 @@
+<!-- src/app/shared/navbar/navbar.component.html -->
+<nav class="sigma-nav">
+  <a routerLink="/" class="sigma-nav__brand">
+    <span class="sigma-nav__logo">S</span>
+    <span class="sigma-nav__name">SIGMA</span>
+  </a>
+
+  <ul class="sigma-nav__links">
+    <li>
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="limparBusca(campoBusca)"
+      >
+        HOME
+      </a>
+    </li>
+
+    <li><a routerLink="/" fragment="perfumes">PERFUMES</a></li>
+    <li><a routerLink="/" fragment="cremes">CREMES</a></li>
+
+    <li [class.is-hidden]="!mostrarAdmin()">
+      <a routerLink="/admin" routerLinkActive="active">ADMIN</a>
+    </li>
+  </ul>
+
+  <div class="sigma-nav__actions">
+    <div class="sigma-nav__search">
+      <span>Buscar</span>
+      <input #campoBusca type="text" placeholder="Procurar..." (input)="buscar($event)" />
+    </div>
+
+    <a
+      routerLink="/login"
+      class="sigma-nav__icon-btn"
+      [class.is-hidden]="estaLogado()"
+      title="Login"
+      >Login</a
+    >
+    <button
+      class="sigma-nav__icon-btn"
+      [class.is-hidden]="!estaLogado()"
+      (click)="sair()"
+      title="Sair"
+    >
+      Sair
+    </button>
+
+    <a routerLink="/carrinho" class="sigma-nav__icon-btn" title="Carrinho">Carrinho</a>
+  </div>
+</nav>
