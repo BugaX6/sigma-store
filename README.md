@@ -14,9 +14,3 @@ O **SigmaStore** é uma aplicação web de e-commerce focada no segmento de perf
 - **Autenticação e Controle de Acesso**: Sistema de login com usuários pré-definidos (incluindo perfis Administrativos e de clientes).
 - **Catálogo Dinâmico de Perfumaria**: Separação inteligente e renderização de perfumes e cremes filtrados por categorias masculinas e femininas.
 - **Interface Responsiva**: Estrutura modular de componentes otimizada para navegação fluida.
-
-## 🛠️ Como Executar o Projeto Localmente
-
-1. **Clonar o repositório:**
-```bash
-   git clone [https://github.com/SEU_USUARIO/sigma-store.git](https://github.com/SEU_USUARIO/sigma-store.git)
